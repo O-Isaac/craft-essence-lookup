@@ -1,0 +1,61 @@
+.menu {
+    @apply relative inline-block text-left;
+}
+
+.menu > .menu-btn {
+    @apply inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 
+        bg-white text-sm font-medium text-gray-700 hover:bg-gray-50;
+}
+
+.menu > .menu-items {
+    @apply origin-top-right absolute left-0 mt-2 w-56 
+    rounded-md shadow-lg bg-white ring-1 ring-black 
+    ring-opacity-5 focus:outline-none;
+}
+
+.pagination {
+    @apply flex justify-center list-none pl-0 mt-4;
+}
+
+.page-item .page-link {
+    @apply relative block mx-0 my-1 text-center;
+    margin: 0 5px;
+    min-height: 40px;
+    min-width: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.page-item a.page-link:hover {
+    background-color: #cccccc;
+}
+
+.page-item.active .page-link {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #007bff;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.filter-active {
+    @apply bg-gray-200;
+}
