@@ -1,6 +1,15 @@
 import { BuffType } from '@atlasacademy/api-connector/dist/Schema/Buff'
 
-const Effects = {
+interface Effects {
+    [key: string]: {
+        iconId: number
+        buffType: BuffType
+        traitValue: string
+        alt: string
+    }
+}
+
+const Effects: Effects = {
     BUSTER_UP: {
         iconId: 314,
         buffType: BuffType.UP_COMMANDALL,
@@ -54,6 +63,12 @@ const Effects = {
         buffType: BuffType.UP_DEFENCE,
         traitValue: 'buffDefenceUp',
         alt: 'DEF Up',
+    },
+    DMG_UP_VS_GIANT: {
+        iconId: 302,
+        buffType: BuffType.UP_DAMAGE,
+        traitValue: 'giant',
+        alt: 'DMG UP vs Giant',
     },
 }
 

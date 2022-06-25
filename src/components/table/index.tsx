@@ -124,7 +124,7 @@ const TableItem = (props: Row) => {
                         }
 
                         return (
-                            <Tooltip arrow key={index} title={description + `${value ? `(${value})` : ''}`}>
+                            <Tooltip arrow key={index} title={description + `${value ? ` (${value})` : ''}`}>
                                 <img width={20} alt={`b-${buff.id}`} src={buff.icon} />
                             </Tooltip>
                         )
