@@ -33,7 +33,7 @@ const FilterButton = (props: PropsFilterBtn) => {
         setFilter(effect)
     }
 
-    const buttonClasses = 'px-3 py-1 transition-all shadow-md rounded hover:bg-gray-300'
+    const buttonClasses = 'px-3 py-3 transition-all shadow-md rounded hover:bg-gray-300'
 
     return (
         <Tooltip title={alt}>
@@ -63,11 +63,9 @@ export default function FilterBTNSection(props: FilterBTNProps) {
     const { currentFilter, dataPerPage, setDataPerPage, setFilterEffect } = props
 
     return (
-        <section className="flex w-full justify-around flex-wrap gap-2">
-            <div className="w-24">
-                <RowSelectListBox rowsOptions={rowsOptions} dataPerPage={dataPerPage} setDataPerPage={setDataPerPage} />
-            </div>
-            <div className="flex flex-wrap justify-center gap-2">
+        <>
+            <RowSelectListBox rowsOptions={rowsOptions} dataPerPage={dataPerPage} setDataPerPage={setDataPerPage} />
+            <section className="flex w-full justify-center flex-wrap gap-2">
                 {Object.values(Effects).map((effect, index) => (
                     <FilterButton
                         key={index}
@@ -78,7 +76,7 @@ export default function FilterBTNSection(props: FilterBTNProps) {
                         alt={effect.alt}
                     />
                 ))}
-            </div>
-        </section>
+            </section>
+        </>
     )
 }

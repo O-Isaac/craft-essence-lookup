@@ -166,7 +166,7 @@ const TableComponent = () => {
             {/* Filter Menu */}
             <FilterBTNSection {...filterBTNProps} />
             {/* Table */}
-            <section className="flex justify-center mt-6">
+            <section className="flex justify-center my-6">
                 <Pagination
                     shape="rounded"
                     onChange={(_, page) => setCurrentPage(page)}

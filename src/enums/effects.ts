@@ -70,6 +70,48 @@ const Effects: Effects = {
         traitValue: 'giant',
         alt: 'DMG UP vs Giant',
     },
+    DMG_UP_VS_GOOD: {
+        iconId: 302,
+        buffType: BuffType.UP_DAMAGE,
+        traitValue: 'alignmentGood',
+        alt: 'DMG Up vs Good',
+    },
+    DMG_UP_VS_EVIL: {
+        iconId: 302,
+        buffType: BuffType.UP_DAMAGE,
+        traitValue: 'alignmentEvil',
+        alt: 'DMG Up vs Evil',
+    },
+    OVERCHARGE_UP: {
+        iconId: 336,
+        buffType: BuffType.UP_CHAGETD,
+        traitValue: 'buffPositiveEffect',
+        alt: 'Overcharge',
+    },
+    START_PER_TURN: {
+        iconId: 320,
+        buffType: BuffType.REGAIN_STAR,
+        traitValue: 'buffPositiveEffect',
+        alt: 'Start Per Turn',
+    },
+    TRIGGER_ON_ENTRY: {
+        iconId: 331,
+        buffType: BuffType.ENTRY_FUNCTION,
+        traitValue: 'buffPositiveEffect',
+        alt: 'Trigger Skill On Entry',
+    },
+    IGNORE_INVENCIBLE: {
+        iconId: 329,
+        buffType: BuffType.PIERCE_INVINCIBLE,
+        traitValue: 'buffInvinciblePierce',
+        alt: 'Pierce Invencible',
+    },
+    CRIT_UP: {
+        iconId: 324,
+        buffType: BuffType.UP_CRITICALDAMAGE,
+        traitValue: 'buffCritDamageUp',
+        alt: 'Critical Damage Up',
+    },
 }
 
 export interface Effect {

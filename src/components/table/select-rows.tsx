@@ -19,7 +19,7 @@ const RowSelectListBox = (props: RowSelectListProps) => {
     }
 
     return (
-        <FormControl sx={{ minWidth: 120 }}>
+        <FormControl variant="outlined" sx={{ minWidth: 80 }}>
             <InputLabel id="select-rows-label">Rows</InputLabel>
             <Select {...SelectProps}>
                 {rowsOptions.map(({ value }, index) => (
