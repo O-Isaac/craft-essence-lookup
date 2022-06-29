@@ -1,4 +1,5 @@
 import { Buff, CraftEssence, DataVal } from '@atlasacademy/api-connector'
+import { FuncType } from '@atlasacademy/api-connector/dist/Schema/Func'
 import { useContext, useEffect, useRef, useState } from 'react'
 import DatabaseContext from '../contexts/Database'
 import { Effect } from '../enums/effects'
@@ -100,17 +101,23 @@ export default function useData() {
                     )
 
                     const buffs = skills.flatMap((skill) => {
-                        return skill.functions.flatMap((func) => func.buffs)
+                        return skill.functions
+                            .filter((func) => func.funcType !== FuncType.GAIN_NP)
+                            .flatMap((func) => func.buffs)
                     })
 
                     const svals = ce.skills.flatMap((skill) => {
-                        return skill.functions.flatMap((func) => func.svals)
+                        return skill.functions
+                            .filter((func) => func.funcType !== FuncType.GAIN_NP)
+                            .flatMap((func) => func.svals)
                     })
 
                     const svalsMLB = ce.skills
                         .filter((skill) => skill.num === 1 && skill.strengthStatus === 99)
                         .flatMap((skill) => {
-                            return skill.functions.flatMap((func) => func.svals)
+                            return skill.functions
+                                .filter((func) => func.funcType !== FuncType.GAIN_NP)
+                                .flatMap((func) => func.svals)
                         })
 
                     if (faces.equip) {

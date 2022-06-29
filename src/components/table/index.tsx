@@ -16,6 +16,7 @@ import useData, { Row } from '../../hooks/useData'
 
 import './index.css'
 import FilterBTNSection from './filter-btn'
+import Skills from '../../enums/skills'
 
 const BuffDescription = (val: BasePartial) => {
     const value = val
@@ -115,16 +116,33 @@ const TableItem = (props: Row) => {
                             .map(BuffValueDescription)
                             .join('')
 
+                        const skill = Skills[value || 0]
+                        let text: string
+
                         if (valueMLB) {
+                            text = `${description} (${value}) (✦${valueMLB})`
+
+                            if (skill)
+                                text = `${skill?.description} (${skill?.value.min}) ${
+                                    skill?.value.max ? `(✦${skill?.value.max})` : ''
+                                }`
+
                             return (
-                                <Tooltip arrow key={index} title={description + ` (${value}) (✦${valueMLB})`}>
+                                <Tooltip arrow key={index} title={text}>
                                     <img width={20} alt={`b-${buff.id}`} src={buff.icon} />
                                 </Tooltip>
                             )
                         }
 
+                        text = `${description} (${value})`
+
+                        if (skill)
+                            text = `${skill?.description} (${skill?.value.min}) ${
+                                skill?.value.max ? `(✦${skill?.value.max})` : ''
+                            }`
+
                         return (
-                            <Tooltip arrow key={index} title={description + `${value ? ` (${value})` : ''}`}>
+                            <Tooltip arrow key={index} title={text}>
                                 <img width={20} alt={`b-${buff.id}`} src={buff.icon} />
                             </Tooltip>
                         )
