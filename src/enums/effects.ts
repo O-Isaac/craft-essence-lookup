@@ -112,6 +112,12 @@ const Effects: Effects = {
         traitValue: 'buffCritDamageUp',
         alt: 'Critical Damage Up',
     },
+    TAUNT: {
+	iconId: 323
+	buffType: BuffType.UP_HATE,
+	traitValue: 'buffTargetFocus',
+	alt: 'TAUNT',
+    }
 }
 
 export interface Effect {
