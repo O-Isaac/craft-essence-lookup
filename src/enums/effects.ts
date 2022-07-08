@@ -106,6 +106,13 @@ const Effects: Effects = {
       traitValue: 'classBerserker',
       alt: 'DMG Up vs Berserker',
     },
+    DMG_UP_VS_UNDEAD: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'undead',
+      alt: 'DMG Up vs Undead',
+    },
+    
     DMG_UP_VS_ENEMY_WITH_BURN: {
       iconId: 302,
       buffType: BuffType.UP_DAMAGE,
