@@ -131,6 +131,12 @@ const Effects: Effects = {
       traitValue: 'divine',
       alt: 'DMG Up vs Demonic',
     },
+    DMG_UP_VS_HUMANOID: {
+        iconId: 302,
+        buffType: BuffType.UP_DAMAGE,
+        traitValue: 'humanoid',
+        alt: 'DMG Up vs Humanoid',
+    },
     OVERCHARGE_UP: {
         iconId: 336,
         buffType: BuffType.UP_CHAGETD,

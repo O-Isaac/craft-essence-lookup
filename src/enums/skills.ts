@@ -180,6 +180,24 @@ const Skills: SkillsEnum = {
             max: '20',
         },
     },
+    993146: {
+      description: 'Add Trait',
+      value: {
+        min: "Like"
+      }
+    },
+    993107: {
+      description: 'Curse 3000 on all enemies',
+      value: {
+        min: '5 Turns'
+      }
+    },
+    993002: {
+      description: 'Charge NP to all party',
+      value: {
+        min: '10%'
+      }
+    }
 }
 
 export interface SkillEnum {
