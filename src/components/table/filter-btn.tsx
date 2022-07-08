@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 import Effects, { Effect } from '../../enums/effects'
 import RowSelectListBox from './select-rows'
-import PowermodsDropdowns from './powermods-dropdown'
+import PowermodsDropdowns, { BUFFS_TYPES_LIST } from './powermods-dropdown'
 import { BuffType } from '@atlasacademy/api-connector/dist/Schema/Buff'
 
 interface PropsFilterBtn {
@@ -70,7 +70,7 @@ export default function FilterBTNSection(props: FilterBTNProps) {
             <RowSelectListBox rowsOptions={rowsOptions} dataPerPage={dataPerPage} setDataPerPage={setDataPerPage} />
             <section className="flex w-full justify-center flex-wrap gap-2">
                 {Object.values(Effects)
-                    .filter((value) => value.buffType !== BuffType.UP_DAMAGE)
+                    .filter((value) => !BUFFS_TYPES_LIST.includes(value.buffType))
                     .map((effect, index) => (
                         <FilterButton
                             key={index}

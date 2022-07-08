@@ -115,7 +115,7 @@ const Effects: Effects = {
     
     DMG_UP_VS_ENEMY_WITH_BURN: {
       iconId: 302,
-      buffType: BuffType.UP_DAMAGE,
+      buffType: BuffType.UP_DAMAGE_INDIVIDUALITY_ACTIVEONLY,
       traitValue: 'buffBurn',
       alt: 'DMG Up vs Enemy with burn',
     },

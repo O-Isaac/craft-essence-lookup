@@ -1,4 +1,5 @@
 import { BuffType } from '@atlasacademy/api-connector/dist/Schema/Buff'
+import { Tooltip } from '@mui/material'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
@@ -6,6 +7,8 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import Effects, { Effect } from '../../enums/effects'
 
 const ITEM_HEIGHT = 48
+
+export const BUFFS_TYPES_LIST = [BuffType.UP_DAMAGE, BuffType.UP_DAMAGE_INDIVIDUALITY_ACTIVEONLY]
 
 interface PowermodsDropdownsProps {
     currentFilter: Effect
@@ -22,7 +25,11 @@ export default function PowermodsDropdowns(props: PowermodsDropdownsProps) {
         setAnchorEl(event.currentTarget)
     }
 
-    const handleClose = (effect: Effect) => {
+    const handleClose = () => {
+      setAnchorEl(null)
+    }
+
+    const handleSelect = (effect: Effect) => {
         const buffType = effect.buffType
         const traitValue = effect.traitValue
 
@@ -44,12 +51,13 @@ export default function PowermodsDropdowns(props: PowermodsDropdownsProps) {
                 focusVisibleClassName="bg-gray-500"
                 onClick={handleClick}
             >
-                <img
-                    width={25}
-                    src={'https://static.atlasacademy.io/JP/BuffIcons/bufficon_302.png'}
-                    alt={'Powermods Icons'}
-                />
+                    <img
+                        width={25}
+                        src={'https://static.atlasacademy.io/JP/BuffIcons/bufficon_302.png'}
+                        alt={'Powermods Icons'}
+                    />
             </Button>
+
             <Menu
                 PaperProps={{
                     style: {
@@ -66,10 +74,10 @@ export default function PowermodsDropdowns(props: PowermodsDropdownsProps) {
                 }}
             >
                 {Object.values(Effects)
-                    .filter((value) => value.buffType === BuffType.UP_DAMAGE)
+                    .filter((value) => BUFFS_TYPES_LIST.includes(value.buffType))
                     .map((element, i) => {
                         return (
-                            <MenuItem key={i} onClick={() => handleClose(element)}>
+                            <MenuItem key={i} onClick={() => handleSelect(element)}>
                                 {element.alt}
                             </MenuItem>
                         )
