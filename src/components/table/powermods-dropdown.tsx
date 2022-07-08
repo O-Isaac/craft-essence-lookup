@@ -1,10 +1,11 @@
 import { BuffType } from '@atlasacademy/api-connector/dist/Schema/Buff'
-import { Tooltip } from '@mui/material'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { Dispatch, SetStateAction, useState } from 'react'
 import Effects, { Effect } from '../../enums/effects'
+
+const ITEM_HEIGHT = 48
 
 interface PowermodsDropdownsProps {
     currentFilter: Effect
@@ -25,11 +26,10 @@ export default function PowermodsDropdowns(props: PowermodsDropdownsProps) {
         const buffType = effect.buffType
         const traitValue = effect.traitValue
 
-
         if (currentFilter.buffType == buffType && currentFilter.traitValue === traitValue) {
             setFilter({ buffType: null, traitValue: null })
             setAnchorEl(null)
-            return;
+            return
         }
 
         setFilter(effect)
@@ -51,6 +51,12 @@ export default function PowermodsDropdowns(props: PowermodsDropdownsProps) {
                 />
             </Button>
             <Menu
+                PaperProps={{
+                    style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: '30ch',
+                    },
+                }}
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -62,7 +68,11 @@ export default function PowermodsDropdowns(props: PowermodsDropdownsProps) {
                 {Object.values(Effects)
                     .filter((value) => value.buffType === BuffType.UP_DAMAGE)
                     .map((element, i) => {
-                        return <MenuItem key={i} onClick={() => handleClose(element)}>{element.alt}</MenuItem>
+                        return (
+                            <MenuItem key={i} onClick={() => handleClose(element)}>
+                                {element.alt}
+                            </MenuItem>
+                        )
                     })}
             </Menu>
         </>

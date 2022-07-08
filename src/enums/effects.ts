@@ -88,6 +88,30 @@ const Effects: Effects = {
         traitValue: 'classAssassin',
         alt: 'DMG Up vs Assassin',
     },
+    DMG_UP_VS_CASTER: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'classCaster',
+      alt: 'DMG Up vs Caster',
+    },
+    DMG_UP_VS_RIDER: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'classRider',
+      alt: 'DMG Up vs Rider',
+    },
+    DMG_UP_VS_BERSERKER: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'classBerserker',
+      alt: 'DMG Up vs Berserker',
+    },
+    DMG_UP_VS_ENEMY_WITH_BURN: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'buffBurn',
+      alt: 'DMG Up vs Enemy with burn',
+    },
     DMG_UP_VS_DIVINE: {
       iconId: 302,
       buffType: BuffType.UP_DAMAGE,
