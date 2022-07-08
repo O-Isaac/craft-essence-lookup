@@ -106,12 +106,12 @@ const TableItem = (props: Row) => {
                     {buffs.map((buff, index) => {
                         const description = BuffDescriptor.describe(buff).partials().map(BuffDescription).join(' ')
 
-                        const value = BuffDescriptor.describeValue(buff, svals.normal[index])
+                        let value = BuffDescriptor.describeValue(buff, svals.normal[index])
                             ?.partials()
                             .map(BuffValueDescription)
                             .join('')
 
-                        const valueMLB = BuffDescriptor.describeValue(buff, svals.mlb[index])
+                        let valueMLB = BuffDescriptor.describeValue(buff, svals.mlb[index])
                             ?.partials()
                             .map(BuffValueDescription)
                             .join('')
@@ -119,15 +119,28 @@ const TableItem = (props: Row) => {
                         const skill = Skills[value || 0]
                         let text: string
 
-                        console.log(description)
+
+                        if (id === "706") {
+                          
+                          valueMLB = svals.mlb.map((sval) => {
+                            return BuffDescriptor.describeValue(buff, sval)
+                            ?.partials()
+                            .map(BuffValueDescription)
+                            .join('')
+                          }).filter(data => data !== undefined).join('')
+
+
+                        }
+                        
 
                         if (valueMLB) {
-                            text = `${description} (${value}) (✦${valueMLB})`
-
+                            text = `${description}
+                            ${value ? `(${value})` : ''} 
+                            ${valueMLB ? `(✦${valueMLB})` : ''}`
                             if (skill)
-                                text = `${skill?.description} (${skill?.value.min}) ${
-                                    skill?.value.max ? `(✦${skill?.value.max})` : ''
-                                }`
+                                text = `${skill?.description} 
+                                ${skill?.value.min ? `(${skill?.value.min})` : ''} 
+                                ${skill?.value.max ? `(✦${skill?.value.max})` : ''}`
 
                             return (
                                 <Tooltip arrow key={index} title={text}>
@@ -136,7 +149,8 @@ const TableItem = (props: Row) => {
                             )
                         }
 
-                        text = `${description} (${value})`
+
+                        text = `${description} ${value ? `(${value})` : ''}`
 
                         if (skill)
                             text = `${skill?.description} (${skill?.value.min}) ${
