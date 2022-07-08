@@ -44,7 +44,7 @@ const App = () => {
             <DatabaseContext.Provider value={{ database }}>
                 <Toaster />
                 <Navigation />
-                <Container>
+                <Container maxWidth="xl">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/credits" element={<Credits />} />

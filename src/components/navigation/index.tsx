@@ -8,11 +8,13 @@ import {
     MenuProps,
 } from '@mui/material'
 
+import { Link } from 'react-router-dom'
+
 import { useState } from 'react'
 
 import MenuIcon from '@mui/icons-material/Menu'
 
-const pages: string[] = []
+const pages: string[] = ['Credits']
 
 const Title = ({ str }: { str: string }) => {
     const titleStyles: SxProps<Theme> = {
@@ -87,9 +89,11 @@ const AppBarItems = (props: AppBarItemsProps) => {
             </IconButton>
             <Menu {...MenuProps}>
                 {pages.map((page) => (
+                  <Link to={page.toLowerCase()}>
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                         <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
+                  </Link>
                 ))}
             </Menu>
         </Box>
@@ -112,8 +116,9 @@ const Navigation = () => {
         <AppBar elevation={0} position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Title str="Craft Essence Lookup" />
-
+                    <Link to={"/"}>
+                        <Title str="Craft Essence Lookup" />
+                    </Link>
                     <AppBarItems
                         anchorElNav={anchorElNav}
                         handleCloseNavMenu={handleCloseNavMenu}
@@ -122,9 +127,11 @@ const Navigation = () => {
 
                     <Box sx={{ flexGrow: 1, justifyContent: 'end', display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button key={page} onClick={handleCloseNavMenu} sx={stylesProps}>
-                                {page}
-                            </Button>
+                            <Link to={page.toLowerCase()}>
+                                <Button key={page} onClick={handleCloseNavMenu} sx={stylesProps}>
+                                    {page}
+                                </Button>
+                            </Link>
                         ))}
                     </Box>
                 </Toolbar>
