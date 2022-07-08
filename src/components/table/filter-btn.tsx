@@ -1,7 +1,10 @@
 import { Tooltip } from '@mui/material'
 import { Dispatch, SetStateAction } from 'react'
+
 import Effects, { Effect } from '../../enums/effects'
 import RowSelectListBox from './select-rows'
+import PowermodsDropdowns from './powermods-dropdown'
+import { BuffType } from '@atlasacademy/api-connector/dist/Schema/Buff'
 
 interface PropsFilterBtn {
     src: string
@@ -66,16 +69,20 @@ export default function FilterBTNSection(props: FilterBTNProps) {
         <>
             <RowSelectListBox rowsOptions={rowsOptions} dataPerPage={dataPerPage} setDataPerPage={setDataPerPage} />
             <section className="flex w-full justify-center flex-wrap gap-2">
-                {Object.values(Effects).map((effect, index) => (
-                    <FilterButton
-                        key={index}
-                        currentFilter={currentFilter}
-                        setFilter={setFilterEffect}
-                        effect={{ buffType: effect.buffType, traitValue: effect.traitValue }}
-                        src={`https://static.atlasacademy.io/JP/BuffIcons/bufficon_${effect.iconId}.png`}
-                        alt={effect.alt}
-                    />
-                ))}
+                {Object.values(Effects)
+                    .filter((value) => value.buffType !== BuffType.UP_DAMAGE)
+                    .map((effect, index) => (
+                        <FilterButton
+                            key={index}
+                            currentFilter={currentFilter}
+                            setFilter={setFilterEffect}
+                            effect={{ buffType: effect.buffType, traitValue: effect.traitValue }}
+                            src={`https://static.atlasacademy.io/JP/BuffIcons/bufficon_${effect.iconId}.png`}
+                            alt={effect.alt}
+                        />
+                    ))}
+
+                <PowermodsDropdowns currentFilter={currentFilter} setFilter={setFilterEffect} />
             </section>
         </>
     )

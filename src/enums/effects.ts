@@ -82,6 +82,24 @@ const Effects: Effects = {
         traitValue: 'alignmentEvil',
         alt: 'DMG Up vs Evil',
     },
+    DMG_UP_VS_ASSASSIN: {
+        iconId: 302,
+        buffType: BuffType.UP_DAMAGE,
+        traitValue: 'classAssassin',
+        alt: 'DMG Up vs Assassin',
+    },
+    DMG_UP_VS_DIVINE: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'divine',
+      alt: 'DMG Up vs Divine',
+    },
+    DMG_UP_VS_DEMONIC: {
+      iconId: 302,
+      buffType: BuffType.UP_DAMAGE,
+      traitValue: 'divine',
+      alt: 'DMG Up vs Demonic',
+    },
     OVERCHARGE_UP: {
         iconId: 336,
         buffType: BuffType.UP_CHAGETD,
@@ -113,11 +131,11 @@ const Effects: Effects = {
         alt: 'Critical Damage Up',
     },
     TAUNT: {
-	iconId: 323,
-	buffType: BuffType.UP_HATE,
-	traitValue: 'buffTargetFocus',
-	alt: 'TAUNT',
-    }
+        iconId: 323,
+        buffType: BuffType.UP_HATE,
+        traitValue: 'buffTargetFocus',
+        alt: 'TAUNT',
+    },
 }
 
 export interface Effect {
