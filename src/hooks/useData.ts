@@ -97,7 +97,7 @@ export default function useData() {
                     const { faces } = extraAssets
 
                     const skills = ce.skills.filter(
-                        (skill) => skill.num === 1 && (skill.strengthStatus === 1 || skill.strengthStatus === 0)
+                        (skill) => skill.num === 1 && (skill.strengthStatus === 0 || skill.strengthStatus === 99)
                     )
 
                     const buffs = skills.flatMap((skill) => {

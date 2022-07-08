@@ -119,6 +119,8 @@ const TableItem = (props: Row) => {
                         const skill = Skills[value || 0]
                         let text: string
 
+                        console.log(description)
+
                         if (valueMLB) {
                             text = `${description} (${value}) (✦${valueMLB})`
 
